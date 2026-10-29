@@ -1,0 +1,31 @@
+{
+  "name": "monthly-shiai",
+  "version": "1.0.0",
+  "description": "Match results, results view and rankings for a monthly judo tournament",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "start": "node server/index.js",
+    "build": "vite build",
+    "dev": "concurrently -n server,client -c blue,green \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "node --watch-path=server --watch-path=shared server/index.js",
+    "dev:client": "vite",
+    "test": "node --test \"test/**/*.test.js\""
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "pg": "^8.16.0"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.3.0",
+    "@vitejs/plugin-vue": "^6.0.0",
+    "concurrently": "^9.2.0",
+    "element-plus": "^2.10.0",
+    "vite": "^7.0.0",
+    "vue": "^3.5.0",
+    "vue-router": "^4.5.0"
+  }
+}
