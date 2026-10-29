@@ -80,7 +80,7 @@ Heroku sets `DATABASE_URL`; SSL is enabled for non-local databases.
 | POST   | `/api/matches`  | Save a match. Body: `{ matchDate, matNumber, whiteName, blueName, winner, winningScore }`. `winner` is the white or blue name, or empty for a tie (score `Tie`). Returns the new `matchNumber`. |
 | PUT    | `/api/matches/:matchNumber` | Replace a match's details (same body and rules as POST). The match number is unchanged. |
 | DELETE | `/api/matches/:matchNumber` | Delete a match. Its number is not reused. |
-| GET    | `/api/matches`  | Matches sorted by match number, with `points`. Optional `?from=YYYY-MM-DD&to=YYYY-MM-DD`. |
+| GET    | `/api/matches`  | Matches sorted by date, then match number, with `points`. Optional `?from=YYYY-MM-DD&to=YYYY-MM-DD`. |
 | GET    | `/api/rankings` | Per competitor: `totalPoints`, `wins`, `ties`, `matches`, sorted by points. Same date filters. |
 
 ## Notes on the spec

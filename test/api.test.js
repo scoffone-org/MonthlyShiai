@@ -54,7 +54,7 @@ test('rejects invalid results', async () => {
   }
 });
 
-test('lists results in sequence order with points, filtered by date', async () => {
+test('lists results with points, filtered by date', async () => {
   const all = await get('/api/matches');
   assert.deepEqual(all.map((m) => m.matchNumber), [1, 2, 3, 4]);
   assert.deepEqual(all.map((m) => m.points), [10, 7, 1, 2]);
@@ -108,4 +108,9 @@ test('deletes a match without reusing its number', async () => {
 
   const created = await (await post(match())).json();
   assert.equal(created.matchNumber, 5);
+});
+
+test('lists results by date, then match number', async () => {
+  // Match 5 was entered last but is dated 2026-10-03, before matches 3 and 4.
+  assert.deepEqual((await get('/api/matches')).map((m) => m.matchNumber), [2, 5, 3, 4]);
 });
