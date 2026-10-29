@@ -94,7 +94,7 @@ export function createApp(db) {
               winning_score AS "winningScore",
               ${POINTS_SQL} AS points
        FROM matches ${where}
-       ORDER BY match_number ASC`,
+       ORDER BY match_date ASC, match_number ASC`,
       params,
     );
     res.json(rows);
