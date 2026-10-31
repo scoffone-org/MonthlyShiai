@@ -1,9 +1,10 @@
 <script setup>
 import { ref, watch } from 'vue';
 import { ElMessage, ElMessageBox } from 'element-plus';
-import { TIE, validateMatch } from '@shared/scores.js';
+import { validateMatch } from '@shared/scores.js';
 import DateRangeFilter from '../components/DateRangeFilter.vue';
 import MatchForm from '../components/MatchForm.vue';
+import ScoreBadge from '../components/ScoreBadge.vue';
 import { deleteMatch, fetchMatches, updateMatch } from '../api.js';
 import { formFromMatch, matchFromForm } from '../matchForm.js';
 
@@ -98,7 +99,7 @@ watch(range, load, { immediate: true });
       </el-table-column>
       <el-table-column label="Score" width="130">
         <template #default="{ row }">
-          <el-tag :type="row.winningScore === TIE ? 'info' : 'primary'" disable-transitions>{{ row.winningScore }}</el-tag>
+          <ScoreBadge :score="row.winningScore" />
         </template>
       </el-table-column>
       <el-table-column prop="points" label="Points" width="90" align="right" />

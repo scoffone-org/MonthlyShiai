@@ -4,5 +4,6 @@ import 'element-plus/dist/index.css';
 import App from './App.vue';
 import router from './router.js';
 import './styles.css';
+import './score-colors.css';
 
 createApp(App).use(ElementPlus).use(router).mount('#app');

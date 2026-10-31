@@ -1,0 +1,53 @@
+/*
+ * Winning score colors, used by the score dropdown and the score badges (ScoreBadge.vue).
+ * Change the colors here, or override these variables in any stylesheet loaded later.
+ * Each score has a background (-bg) and a text color (-fg); class names are
+ * "score-" plus the lowercased score name from shared/scores.js.
+ */
+:root {
+  --score-ippon-bg: #b91c1c;
+  --score-ippon-fg: #ffffff;
+  --score-wazari-bg: #c2410c;
+  --score-wazari-fg: #ffffff;
+  --score-yuko-bg: #fde68a;
+  --score-yuko-fg: #713f12;
+  --score-hansokumake-bg: #6d28d9;
+  --score-hansokumake-fg: #ffffff;
+  --score-tie-bg: #e5e7eb;
+  --score-tie-fg: #374151;
+}
+
+.score-badge {
+  display: inline-block;
+  padding: 0 10px;
+  border-radius: 10px;
+  font-size: 0.85em;
+  font-weight: 600;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.score-badge.score-ippon {
+  background: var(--score-ippon-bg);
+  color: var(--score-ippon-fg);
+}
+
+.score-badge.score-wazari {
+  background: var(--score-wazari-bg);
+  color: var(--score-wazari-fg);
+}
+
+.score-badge.score-yuko {
+  background: var(--score-yuko-bg);
+  color: var(--score-yuko-fg);
+}
+
+.score-badge.score-hansokumake {
+  background: var(--score-hansokumake-bg);
+  color: var(--score-hansokumake-fg);
+}
+
+.score-badge.score-tie {
+  background: var(--score-tie-bg);
+  color: var(--score-tie-fg);
+}

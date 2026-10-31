@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import { ElMessage } from 'element-plus';
 import { pointsFor, validateMatch } from '@shared/scores.js';
 import MatchForm from '../components/MatchForm.vue';
+import ScoreBadge from '../components/ScoreBadge.vue';
 import { saveMatch } from '../api.js';
 import { emptyForm, matchFromForm } from '../matchForm.js';
 
@@ -70,8 +71,8 @@ function onClear() {
               <strong>#{{ m.matchNumber }}</strong>
               <span class="muted">Mat {{ m.matNumber }}</span>
               {{ m.whiteName }} vs {{ m.blueName }} —
-              <template v-if="m.winner">{{ m.winner }} by {{ m.winningScore }} ({{ pointsFor(m.winningScore) }})</template>
-              <template v-else>Tie</template>
+              <template v-if="m.winner">{{ m.winner }} by <ScoreBadge :score="m.winningScore" /> ({{ pointsFor(m.winningScore) }})</template>
+              <ScoreBadge v-else :score="m.winningScore" />
             </li>
           </ul>
         </el-card>

@@ -92,4 +92,7 @@ Heroku sets `DATABASE_URL`; SSL is enabled for non-local databases.
   rankings group names case-insensitively (`ben ross` and `Ben Ross` count as the same competitor).
 - Matches can be corrected or deleted from the results view (Edit / Delete on each row). Deleting
   leaves a gap in the match numbers rather than renumbering later matches.
+- Each winning score has its own color in the score dropdown and the results table. The colors are
+  CSS variables (`--score-ippon-bg`, `--score-ippon-fg`, ...) in
+  [`client/src/score-colors.css`](client/src/score-colors.css).
 - Competitors with equal points share a rank; ties within equal points are listed by wins, then name.
