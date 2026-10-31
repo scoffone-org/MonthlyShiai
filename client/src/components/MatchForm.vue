@@ -1,6 +1,7 @@
 <script setup>
 import { watch } from 'vue';
 import { SCORES, TIE, normalizeName } from '@shared/scores.js';
+import ScoreBadge from './ScoreBadge.vue';
 
 // v-model is the form state from matchForm.js; errors maps field names to messages.
 const form = defineModel({ type: Object, required: true });
@@ -57,8 +58,9 @@ watch(() => form.value.winnerSide, (side) => {
       <el-col :span="10">
         <el-form-item label="Winning score" :error="errors.winningScore">
           <el-select v-model="form.winningScore" placeholder="Select" style="width: 100%">
+            <template #label="{ value }"><ScoreBadge :score="value" /></template>
             <el-option v-for="s in SCORES" :key="s.name" :value="s.name" :label="s.name">
-              {{ s.name }} <span class="pts">{{ s.points }} pt{{ s.points === 1 ? '' : 's' }}</span>
+              <ScoreBadge :score="s.name" /> <span class="pts">{{ s.points }} pt{{ s.points === 1 ? '' : 's' }}</span>
             </el-option>
           </el-select>
         </el-form-item>
